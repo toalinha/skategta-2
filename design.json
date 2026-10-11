@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "project": "Skate Los Santos",
+    "host": {"game": "gta-v", "role": "primary", "mode": "story only"},
+    "companion": {"game": "skate", "role": "companion", "readFrom": "{game:skate}"},
+    "license": "MIT", "remix": true, "players": "solo",
+    "rule": "Sheets are source of truth. null = unfilled/unverified cell, listed by preflight."
+  },
+  "tricks": [
+    {"id": "ollie",    "stick": "flick up",        "points": 100, "airTimeMs": 600,  "bailAngleDeg": 45, "verified": false},
+    {"id": "kickflip", "stick": "flick up-left",   "points": 250, "airTimeMs": 700,  "bailAngleDeg": 50, "verified": false},
+    {"id": "heelflip", "stick": "flick up-right",  "points": 250, "airTimeMs": 700,  "bailAngleDeg": 50, "verified": false},
+    {"id": "popshuvit","stick": "flick down-side", "points": 200, "airTimeMs": 650,  "bailAngleDeg": 50, "verified": false},
+    {"id": "grind",    "stick": "ollie onto edge", "points": 150, "airTimeMs": null, "bailAngleDeg": 35, "verified": false}
+  ],
+  "board": [
+    {"id": "deck", "spawn": "on foot start", "maxSpeedMs": 9.0, "pushAccel": 2.5, "bailRagdollMs": 2500, "model": "skate:board_art (read from player copy)", "verified": false}
+  ],
+  "audio": [
+    {"id": "skate_playlist", "source": "{game:skate}", "files": null, "format": null, "playback": "radio-style loop while boarding", "verified": false}
+  ],
+  "hooks": [
+    {"id": "tick",       "into": "gta-v", "via": "ASI via Ultimate ASI Loader", "purpose": "input + board physics each frame", "nativeAccess": null, "verified": false},
+    {"id": "spawn_board","into": "gta-v", "via": "ASI", "purpose": "attach board prop + start skate state", "nativeAccess": null, "verified": false},
+    {"id": "score_hud",  "into": "gta-v", "via": "ASI", "purpose": "draw trick name and score", "nativeAccess": null, "verified": false}
+  ]
+}
